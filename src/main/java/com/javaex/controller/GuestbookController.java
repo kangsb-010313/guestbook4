@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -103,6 +104,26 @@ public class GuestbookController {
 	}
 	*/
 
+	//삭제폼(삭제랑 헷갈리지 말자) 폼만 보여주면 됨
+	@RequestMapping(value="/rform", method= {RequestMethod.GET, RequestMethod.POST})
+	public String removeForm() {
+		
+		System.out.println("GuestbookController.removeForm()");
+		
+		return "/WEB-INF/views/removeform.jsp";
+		
+	}
 	
+	//삭제
+	@RequestMapping(value="/remove", method= {RequestMethod.GET, RequestMethod.POST})
+	public String remove(@ModelAttribute GuestbookVO guestbookVO) {
+		
+		System.out.println("GuestbookController.remove()");
+		
+		GuestbookDAO guestbookDAO = new GuestbookDAO();
+		guestbookDAO.guestbookDelete(guestbookVO);
+		
+		return "redirect:/list";
+	}
 
 }
