@@ -43,7 +43,7 @@
 					<td>${guestbookVO.name}</td>
 					<td>${guestbookVO.regDate}</td>
 					<td>
-						<a href="">삭제</a>
+						<a href="http://localhost:8888/guestbook4/remove?no=23&password=13">삭제</a>
 					</td>
 				</tr>
 				<tr>
