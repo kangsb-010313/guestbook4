@@ -8,7 +8,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<form action="http://localhost:8888/guestbook4/remove">
+		<form action="${pageContext.request.contextPath}/remove">
 			<table>
 				<tr>
 					<td>비밀번호</td>
@@ -20,7 +20,7 @@
 					</td>
 				</tr>
 			</table>
-			<input type="text" name="no" value=""> 
+			<input type="text" name="no" value="${param.no }"> 
 		</form>
 		
 		<br><br>

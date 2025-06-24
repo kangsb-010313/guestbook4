@@ -9,7 +9,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<form action="http://localhost:8888/guestbook4/add" meethod="get">
+		<form action="${pageContext.request.contextPath}/add" meethod="get">
 			<table border="1" width="540px">
 				<tr>
 					<td>이름</td>
@@ -43,7 +43,7 @@
 					<td>${guestbookVO.name}</td>
 					<td>${guestbookVO.regDate}</td>
 					<td>
-						<a href="http://localhost:8888/guestbook4/remove?no=23&password=13">삭제</a>
+						<a href="${pageContext.request.contextPath}/rform?no=${guestbookVO.no}">삭제</a>
 					</td>
 				</tr>
 				<tr>

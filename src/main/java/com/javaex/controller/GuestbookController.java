@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -42,7 +41,7 @@ public class GuestbookController {
 		//*View 개념
 		//D.S 야!!!!
 		//"/WEB-INF/views/addlist.jsp" 에 포워드 해라
-		return "/WEB-INF/views/addlist.jsp";
+		return "addlist";
 		
 	}
 	
@@ -109,8 +108,12 @@ public class GuestbookController {
 	public String removeForm() {
 		
 		System.out.println("GuestbookController.removeForm()");
-		
-		return "/WEB-INF/views/removeform.jsp";
+		/*
+		#view resolve
+		spring.mvc.view.prefix=/WEB-INF/views/
+		spring.mvc.view.suffix=.jsp
+		*/
+		return "removeform";
 		
 	}
 	
