@@ -17,18 +17,12 @@ public class HelloController {
 	
 	
 	//메소드 일반
-	@RequestMapping(value="/list", method= {RequestMethod.GET, RequestMethod.POST})
-	public String select() {
-		System.out.println("guestbook4/list");
+	@RequestMapping(value="/hello", method= {RequestMethod.GET, RequestMethod.POST})
+	public String hello() {
+		System.out.println("hello");
 		
-		return "";
+		return "/WEB-INF/views/hello.jsp";
 	}
 	
-	@RequestMapping(value="/remove", method= {RequestMethod.GET, RequestMethod.POST})
-	public String delete() {
-		System.out.println("guestbook4/remove");
-		
-		return "";
-	}
 
 }
