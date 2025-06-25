@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.javaex.dao.GuestbookDAO;
+import com.javaex.service.GuestbookService;
 import com.javaex.vo.GuestbookVO;
 
 @Controller
@@ -29,9 +29,10 @@ public class GuestbookController {
 	public String list(Model model) {
 		System.out.println("GuestbookController.list()");
 		
-		GuestbookDAO guestbookDAO = new GuestbookDAO();
-		List<GuestbookVO> guestbookList = guestbookDAO.guestbookSelect();
-		System.out.println(guestbookList);
+		//service 
+		GuestbookService guestbookService = new GuestbookService();
+		List<GuestbookVO> guestbookList = guestbookService.exeGetGuestbookList();
+		
 		
 		//*Model 개념
 		//!!!D.S(Dispatcher Servlet)!!!한테 request의 어트리뷰트 영역에
@@ -51,6 +52,7 @@ public class GuestbookController {
 	public String add(@ModelAttribute GuestbookVO guestbookVO) {
 					//D.S야 request의 파라미터값을 꺼내서 
 					//GuestbookVO로 묶어줘
+		System.out.println("GuestbookController.add()");
 		
 		/*D.S가 하는 일
 		 1) 파라미터의 값을 꺼낸다
@@ -73,9 +75,10 @@ public class GuestbookController {
 		
 		System.out.println(guestbookVO);
 		
-		GuestbookDAO guestbookDAO = new GuestbookDAO();
-		int count = guestbookDAO.guestbookInsert(guestbookVO);
-		System.out.println(count); //등록 확인
+		/////////////////////////////////////////////
+		
+		GuestbookService guestbookService = new GuestbookService();
+		guestbookService.exeGetGuestbookAdd(guestbookVO);
 		
 		//리다이렉트 하는법 "redirect:" 를 앞쪽에 써준다 
 		//http://localhost:8888/guestbook4/list -> guestbook4까지 생략 가능
@@ -123,8 +126,8 @@ public class GuestbookController {
 		
 		System.out.println("GuestbookController.remove()");
 		
-		GuestbookDAO guestbookDAO = new GuestbookDAO();
-		guestbookDAO.guestbookDelete(guestbookVO);
+		GuestbookService guestbookService = new GuestbookService();
+		guestbookService.exeGetGuestbookRemove(guestbookVO);
 		
 		return "redirect:/list";
 	}
