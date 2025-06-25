@@ -2,13 +2,18 @@ package com.javaex.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.javaex.dao.GuestbookDAO;
 import com.javaex.vo.GuestbookVO;
 
+@Service
 public class GuestbookService {
 	
 	//필드
-	
+	@Autowired
+	private GuestbookDAO guestbookDAO;
 	
 	//생성자
 	
@@ -22,7 +27,7 @@ public class GuestbookService {
 		System.out.println("GuestbookService.exeGetGuestbookList()");
 		
 		//dao를 통해서 일한다
-		GuestbookDAO guestbookDAO = new GuestbookDAO();
+		//GuestbookDAO guestbookDAO = new GuestbookDAO();
 		List<GuestbookVO> guestbookList = guestbookDAO.guestbookSelect();
 		
 		return guestbookList;
@@ -33,7 +38,7 @@ public class GuestbookService {
 		System.out.println("GuestbookService.exeGetGuestbookAdd()");
 		
 		//dao를 통해서 일한다
-		GuestbookDAO guestbookDAO = new GuestbookDAO();
+		//GuestbookDAO guestbookDAO = new GuestbookDAO();
 		int count = guestbookDAO.guestbookInsert(guestbookVO);
 		
 		return count;
@@ -44,7 +49,7 @@ public class GuestbookService {
 		System.out.println("GuestbookService.exeGetGuestbookRemove()");
 		
 		//dao를 통해서 일한다
-		GuestbookDAO guestbookDAO = new GuestbookDAO();
+		//GuestbookDAO guestbookDAO = new GuestbookDAO();
 		int count = guestbookDAO.guestbookDelete(guestbookVO);
 		
 		return count;

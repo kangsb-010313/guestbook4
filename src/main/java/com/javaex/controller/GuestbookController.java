@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +16,8 @@ import com.javaex.vo.GuestbookVO;
 public class GuestbookController {
 	
 	//필드
+	@Autowired
+	private GuestbookService guestbookService;
 	
 	
 	//생성자
@@ -30,7 +33,11 @@ public class GuestbookController {
 		System.out.println("GuestbookController.list()");
 		
 		//service 
-		GuestbookService guestbookService = new GuestbookService();
+		
+		//@Autowired
+		//guestbookService 메모리에 올려주세요
+		//주소0x333 주입해주세요 
+		//GuestbookService guestbookService = new GuestbookService();
 		List<GuestbookVO> guestbookList = guestbookService.exeGetGuestbookList();
 		
 		
@@ -77,7 +84,7 @@ public class GuestbookController {
 		
 		/////////////////////////////////////////////
 		
-		GuestbookService guestbookService = new GuestbookService();
+		//GuestbookService guestbookService = new GuestbookService();
 		guestbookService.exeGetGuestbookAdd(guestbookVO);
 		
 		//리다이렉트 하는법 "redirect:" 를 앞쪽에 써준다 
@@ -126,7 +133,7 @@ public class GuestbookController {
 		
 		System.out.println("GuestbookController.remove()");
 		
-		GuestbookService guestbookService = new GuestbookService();
+		//GuestbookService guestbookService = new GuestbookService();
 		guestbookService.exeGetGuestbookRemove(guestbookVO);
 		
 		return "redirect:/list";
