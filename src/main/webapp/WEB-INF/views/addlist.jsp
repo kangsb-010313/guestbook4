@@ -9,7 +9,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		v03
+		v04
 		<form action="${pageContext.request.contextPath}/add" meethod="get">
 			<table border="1" width="540px">
 				<tr>
